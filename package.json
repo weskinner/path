@@ -5,7 +5,7 @@
   "private": true,
   "description": "shortcuts for inserting path strings.",
   "activationEvents": ["path:relativeToMe"],
-  "repository": "https://github.com/atom/path",
+  "repository": "https://github.com/weskinner/path",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
