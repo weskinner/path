@@ -1,0 +1,15 @@
+{
+  "name": "path",
+  "main": "./lib/path",
+  "version": "0.0.0",
+  "private": true,
+  "description": "shortcuts for inserting path strings.",
+  "activationEvents": ["path:relativeToMe"],
+  "repository": "https://github.com/atom/path",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
