@@ -5,7 +5,8 @@
   "private": true,
   "description": "shortcuts for inserting path strings.",
   "activationEvents": [
-    "path:relativeToMe"
+    "path:insert-relative-to-me",
+    "path:insert-full-path"
   ],
   "repository": "https://github.com/weskinner/path",
   "license": "MIT",

@@ -1,7 +1,7 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-      'Insert Relative to Me': 'path:relativeToMe'
+      'Insert Relative to Me': 'path:insert-relative-to-me'
 
 'menu': [
   {
@@ -9,7 +9,8 @@
     'submenu': [
       'label': 'path'
       'submenu': [
-        { 'label': 'Insert Relative to Me', 'command': 'path:relativeToMe' }
+        { 'label': 'Insert Relative to Me', 'command': 'path:insert-relative-to-me' },
+        { 'label': 'Insert Full Path', 'command': 'path:insert-full-path' }
       ]
     ]
   }

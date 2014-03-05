@@ -6,14 +6,10 @@ path = require 'path'
 module.exports =
 class PathSelectorView extends ProjectView
 
-  confirmed : ({filePath}) ->
-    return unless filePath
+  promptForPath: (cb) ->
+    @pathSelected = cb
+    @toggle()
 
-    else
-      lineNumber = @getLineNumber()
-      @cancel()
-      activeEditor = atom.workspace.getActiveEditor()
-      if activeEditor?
-        activeEditorUri = atom.workspace.getActiveEditor().getUri()
-        relativePath = path.relative(path.dirname(activeEditorUri), filePath)
-        activeEditor.insertText(relativePath)
+  confirmed : ({filePath}) ->
+    @cancel()
+    @pathSelected(filePath)
