@@ -9,4 +9,4 @@
 # https://atom.io/docs/latest/advanced/keymaps
 '.workspace':
   'cmd-alt-r': 'path:insert-relative-to-me'
-  'cmd-alt-i': 'path:insert-full-path'
+  'cmd-alt-f': 'path:insert-full-path'
