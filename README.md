@@ -1,8 +1,11 @@
 # path package
 
-shortcuts for inserting path strings.
+shortcuts for working with path strings.
 
 ###Features
-- **Insert Relative to Me**: inserts the path of a file you select relative
+- **Insert Relative to Me**: inserts the path of a project file you select
+using the fuzzy finder relative
 to the current file. `alt-cmd-r`
 - **Insert Full Path**: inserts the full path of a file you select. `alt-cmd-i`
+- **Pull Path Up**: pulls the current selection up a directory. `/path/to/file.txt`
+becomes `/path/file.txt`. `alt-cmd-u`
