@@ -8,6 +8,8 @@ module.exports =
       @createPathSelectorView().promptForPath @insertRelativeToMe
     atom.workspaceView.command 'path:insert-full-path', =>
       @createPathSelectorView().promptForPath @insertAbsolute
+    atom.workspaceView.command 'path:pull-up', =>
+      @pullUp()
 
     if atom.project.getPath()?
       PathLoader = require fuzzyFinderPath + '/lib/path-loader'
@@ -32,6 +34,19 @@ module.exports =
     activeEditor = atom.workspace.getActiveEditor()
     if activeEditor?
       activeEditor.insertText(filePath)
+
+  pullUp: ->
+    activeEditor = atom.workspace.getActiveEditor()
+    if activeEditor?
+      selectedText = activeEditor.getSelectedText()
+      if selectedText?
+        basename = path.basename(selectedText)
+        pulledText = path.join(selectedText, '..', '..')
+        result = path.join(pulledText, basename)
+        activeEditor.insertText(result)
+        cursorPoint = activeEditor.getCursorBufferPosition().toArray()
+        startOfResult = [cursorPoint[0], cursorPoint[1] - result.length]
+        activeEditor.addSelectionForBufferRange([startOfResult,cursorPoint])
 
   deactivate: ->
 
