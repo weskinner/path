@@ -5,16 +5,16 @@ module.exports =
 
   activate: (state) ->
     atom.workspaceView.command 'path:insert-relative-to-me', =>
-      @createPathSelectorView().promptForPath @insertRelativeToMe
+      @createPathFinderView().promptForPath @insertRelativeToMe
     atom.workspaceView.command 'path:insert-full-path', =>
-      @createPathSelectorView().promptForPath @insertAbsolute
+      @createPathFinderView().promptForPath @insertAbsolute
     atom.workspaceView.command 'path:pull-up', =>
       @pullUp()
     atom.workspaceView.command 'path:insert-relative-to', () =>
-      @createPathFinderView()
+      @createPathFinderView().promptForPath @insertRelativeTo
 
     if atom.project.getPath()?
-      PathLoader = require fuzzyFinderPath + '/lib/path-loader'
+      PathLoader = require './path-loader'
       @loadPathsTask = PathLoader.startTask (paths) => @projectPaths = paths
 
   createPathSelectorView: ->
@@ -28,7 +28,8 @@ module.exports =
   createPathFinderView: () ->
     unless @pathFinderView?
       PathFinderView = require './path-finder-view.coffee'
-      @pathFinderView = new PathFinderView()
+      @pathFinderView = new PathFinderView(@projectPaths)
+      @projectPaths = null
     @pathFinderView
 
   insertRelativeToMe: (filePath) ->
@@ -42,6 +43,9 @@ module.exports =
     activeEditor = atom.workspace.getActiveEditor()
     if activeEditor?
       activeEditor.insertText(filePath)
+
+  insertRelativeTo: (filePath) ->
+    console.log(filePath)
 
   pullUp: ->
     activeEditor = atom.workspace.getActiveEditor()

@@ -15,5 +15,9 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "humanize-plus": "~1.4.2",
+    "underscore-plus": "~1.0.4",
+    "fs-plus": "~2.0.1"
+  }
 }
