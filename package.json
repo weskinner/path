@@ -7,12 +7,17 @@
   "activationEvents": [
     "path:insert-relative-to-me",
     "path:insert-full-path",
-    "path:pull-up"
+    "path:pull-up",
+    "path:insert-relative-to"
   ],
   "repository": "https://github.com/weskinner/path",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "humanize-plus": "~1.4.2",
+    "underscore-plus": "~1.0.4",
+    "fs-plus": "~2.0.1"
+  }
 }
