@@ -11,7 +11,9 @@ module.exports =
     atom.workspaceView.command 'path:pull-up', =>
       @pullUp()
     atom.workspaceView.command 'path:insert-relative-to', () =>
-      @createPathFinderView().promptForPath @insertRelativeTo
+      @createPathFinderView().promptForPath (filePath) =>
+        @createPathFinderView().promptForPath (relativePath) =>
+          @insertRelativeTo(filePath, relativePath)
 
     if atom.project.getPath()?
       PathLoader = require './path-loader'
@@ -44,8 +46,11 @@ module.exports =
     if activeEditor?
       activeEditor.insertText(filePath)
 
-  insertRelativeTo: (filePath) ->
-    console.log(filePath)
+  insertRelativeTo: (filePath, relativeTo) ->
+    activeEditor = atom.workspace.getActiveEditor()
+    if activeEditor?
+      relativePath = path.relative(path.dirname(relativeTo), filePath)
+      activeEditor.insertText(relativePath)
 
   pullUp: ->
     activeEditor = atom.workspace.getActiveEditor()
