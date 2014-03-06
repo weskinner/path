@@ -46,6 +46,7 @@ loadPath = (path) ->
             pathLoaded(path) if stats.isFile()
           asyncCallDone()
       else if stats.isDirectory()
+        pathLoaded(path)
         loadFolder(path) unless isIgnored(path)
       else if stats.isFile()
         pathLoaded(path)
