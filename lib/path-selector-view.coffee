@@ -6,8 +6,7 @@ path = require 'path'
 module.exports =
 class PathSelectorView extends ProjectView
 
-  promptForPath: (cb) ->
-    @pathSelected = cb
+  promptForPath: (@pathSelected) ->
     @toggle()
 
   confirmed : ({filePath}) ->
