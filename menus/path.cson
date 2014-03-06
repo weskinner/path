@@ -10,6 +10,7 @@
       'label': 'path'
       'submenu': [
         { 'label': 'Insert Relative to Me', 'command': 'path:insert-relative-to-me' },
+        { 'label': 'Insert Relative to ...', 'command': 'path:insert-relative-to' },
         { 'label': 'Insert Full Path', 'command': 'path:insert-full-path' },
         { 'label': 'Pull Path Up', 'command': 'path:pull-up' },
       ]

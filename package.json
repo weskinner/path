@@ -7,7 +7,8 @@
   "activationEvents": [
     "path:insert-relative-to-me",
     "path:insert-full-path",
-    "path:pull-up"
+    "path:pull-up",
+    "path:insert-relative-to"
   ],
   "repository": "https://github.com/weskinner/path",
   "license": "MIT",

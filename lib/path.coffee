@@ -10,6 +10,8 @@ module.exports =
       @createPathSelectorView().promptForPath @insertAbsolute
     atom.workspaceView.command 'path:pull-up', =>
       @pullUp()
+    atom.workspaceView.command 'path:insert-relative-to', () =>
+      @createPathFinderView()
 
     if atom.project.getPath()?
       PathLoader = require fuzzyFinderPath + '/lib/path-loader'
@@ -22,6 +24,12 @@ module.exports =
       @projectView = new PathSelectorView(@projectPaths)
       @projectPaths = null
     @projectView
+
+  createPathFinderView: () ->
+    unless @pathFinderView?
+      PathFinderView = require './path-finder-view.coffee'
+      @pathFinderView = new PathFinderView()
+    @pathFinderView
 
   insertRelativeToMe: (filePath) ->
     activeEditor = atom.workspace.getActiveEditor()

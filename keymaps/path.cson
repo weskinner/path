@@ -11,3 +11,4 @@
   'cmd-alt-r': 'path:insert-relative-to-me'
   'cmd-alt-f': 'path:insert-full-path'
   'cmd-alt-u': 'path:pull-up'
+  'cmd-alt-t': 'path:insert-relative-to'
